@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{856AABE5-1287-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksEverywhere.Domain", "BooksEverywhere.Domain\BooksEverywhere.Domain.csproj", "{A9898C20-134B-4FF8-9FA4-CF617CF15B2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksEverywhere.Application", "BooksEverywhere.Application\BooksEverywhere.Application.csproj", "{B2991A40-CBD2-489A-91C4-EC73129CC9F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{A9898C20-134B-4FF8-9FA4-CF617CF15B2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9898C20-134B-4FF8-9FA4-CF617CF15B2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9898C20-134B-4FF8-9FA4-CF617CF15B2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2991A40-CBD2-489A-91C4-EC73129CC9F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2991A40-CBD2-489A-91C4-EC73129CC9F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2991A40-CBD2-489A-91C4-EC73129CC9F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2991A40-CBD2-489A-91C4-EC73129CC9F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,6 +41,7 @@ Global
 		{EE83674C-444B-4250-8383-01609F49CA1D} = {B182265F-3E37-4986-AC93-6CDC585643C9}
 		{856AABE5-1287-4537-86B7-FA60E94AAEE8} = {B182265F-3E37-4986-AC93-6CDC585643C9}
 		{A9898C20-134B-4FF8-9FA4-CF617CF15B2D} = {BF194218-EF3B-4C55-B403-D80316066D56}
+		{B2991A40-CBD2-489A-91C4-EC73129CC9F9} = {BF194218-EF3B-4C55-B403-D80316066D56}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4FD11DEC-5947-42C1-8EBD-B8E0316842C4}
