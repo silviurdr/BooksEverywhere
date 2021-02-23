@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BooksEverywhere.Domain.Entities
 {
-    public class BookCollection
+    public class BooksCollection
     {
         public int Id { get; set; }
         public string Name { get; set; }
