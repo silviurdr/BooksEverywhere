@@ -12,7 +12,7 @@ namespace BooksEverywhere.Application.Features.Books.Commands.DeleteBook
 {
     class DeleteBookCommandHandler : IRequestHandler<DeleteBookCommand>
     {
-        private readonly IMapper _mapper;
+
         private readonly IAsyncRepository<Book> _bookRepository;
 
         public DeleteBookCommandHandler(IAsyncRepository<Book> bookRepository)

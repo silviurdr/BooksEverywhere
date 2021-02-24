@@ -23,7 +23,6 @@ namespace BooksEverywhere.Application.Features.Books.Commands.UpdateBook
         public async Task<Unit> Handle(UpdateBookCommand request, CancellationToken cancellationToken)
         {
             var bookToUpdate = await _bookRepository.GetByIdAsync(request.Id);
-
             _mapper.Map(request, bookToUpdate, typeof(UpdateBookCommand), typeof(Book));
 
             await _bookRepository.UpdateAsync(bookToUpdate);
