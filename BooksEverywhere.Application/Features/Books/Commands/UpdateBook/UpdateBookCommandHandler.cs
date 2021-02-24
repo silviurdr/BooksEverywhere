@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace BooksEverywhere.Application.Features.Books.Commands.UpdateBook
 {
-    public class UpdateEventCommandHandler : IRequestHandler<UpdateBookCommand>
+    public class UpdateBookCommandHandler : IRequestHandler<UpdateBookCommand>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<Book> _bookRepository;
 
-        public UpdateEventCommandHandler(IMapper mapper, IAsyncRepository<Book> bookRepository)
+        public UpdateBookCommandHandler(IMapper mapper, IAsyncRepository<Book> bookRepository)
         {
             _mapper = mapper;
             _bookRepository = bookRepository;

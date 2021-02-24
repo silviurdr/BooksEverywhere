@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace BooksEverywhere.Application.Features.Books.Queries.GetBookDetail
 {
-    class GetBookInfoQueryHandler : IRequestHandler<GetBookInfoQuery, BookInfoVm>
+    public class GetBookInfoQueryHandler : IRequestHandler<GetBookInfoQuery, BookInfoVm>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<Book> _bookRepository;

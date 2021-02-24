@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BooksEverywhere.Application.Features.Books.Commands.DeleteBook
+namespace BooksEverywhere.Application.Features.Libraries.Queries.GetLibraryInfo
 {
-    public class DeleteBookCommand: IRequest
+    class GetLibraryInfoQuery: IRequest<LibraryInfoVm>
     {
         public int Id { get; set; }
     }

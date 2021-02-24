@@ -10,14 +10,13 @@ using System.Threading.Tasks;
 
 namespace BooksEverywhere.Application.Features.Books.Commands.DeleteBook
 {
-    class DeleteEventCommandHandler : IRequestHandler<DeleteBookCommand>
+    class DeleteBookCommandHandler : IRequestHandler<DeleteBookCommand>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<Book> _bookRepository;
 
-        public DeleteEventCommandHandler(IMapper mapper, IAsyncRepository<Book> bookRepository)
+        public DeleteBookCommandHandler(IAsyncRepository<Book> bookRepository)
         {
-            _mapper = mapper;
             _bookRepository = bookRepository;
         }
         public async Task<Unit> Handle(DeleteBookCommand request, CancellationToken cancellationToken)

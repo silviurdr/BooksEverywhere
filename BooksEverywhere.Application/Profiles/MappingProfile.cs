@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BooksEverywhere.Application.Features.Books.Commands;
 using BooksEverywhere.Application.Features.Events;
 using BooksEverywhere.Domain.Entities;
 using System;
