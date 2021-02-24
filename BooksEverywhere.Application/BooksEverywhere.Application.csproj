@@ -16,8 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\BookCollections\Commands\" />
-    <Folder Include="Features\BookCollections\Queries\" />
     <Folder Include="Features\BookLends\Commands\" />
     <Folder Include="Features\BookLends\Queries\" />
     <Folder Include="Features\LibraryUsers\Commands\" />

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BooksEverywhere.Application.Interfaces.Persistence
 {
-    interface IBooksCollectionRepository: IAsyncRepository<BooksCollection>
+    interface IBookCollectionRepository: IAsyncRepository<BookCollection>
     {
     }
 }
