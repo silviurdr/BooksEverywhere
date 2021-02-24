@@ -18,10 +18,8 @@
   <ItemGroup>
     <Folder Include="Features\BookLends\Commands\" />
     <Folder Include="Features\BookLends\Queries\" />
-    <Folder Include="Features\Rooms\Commands\" />
-    <Folder Include="Features\Rooms\Queries\" />
-    <Folder Include="Features\Stacks\Commands\" />
-    <Folder Include="Features\Stacks\Queries\" />
+    <Folder Include="Features\Stacks\Commands\DeleteStack\" />
+    <Folder Include="Features\Stacks\Commands\UpdateStack\" />
     <Folder Include="Features\Subjects\Commands\" />
     <Folder Include="Features\Subjects\Queries\" />
     <Folder Include="Features\Subsidiaries\Commands\" />
