@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BooksEverywhere.Application.Features.Events
 {
-    class GetBookDetailQuery: IRequest<BookDetailVm>
+    class GetBookInfoQuery: IRequest<BookInfoVm>
     {
         public int Id { get; set; }
     }

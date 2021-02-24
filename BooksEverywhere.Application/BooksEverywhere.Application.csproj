@@ -14,4 +14,23 @@
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\BookCollections\Commands\" />
+    <Folder Include="Features\BookCollections\Queries\" />
+    <Folder Include="Features\BookLends\Commands\" />
+    <Folder Include="Features\BookLends\Queries\" />
+    <Folder Include="Features\LibraryUsers\Commands\" />
+    <Folder Include="Features\LibraryUsers\Queries\" />
+    <Folder Include="Features\Library\Commands\" />
+    <Folder Include="Features\Library\Queries\" />
+    <Folder Include="Features\Rooms\Commands\" />
+    <Folder Include="Features\Rooms\Queries\" />
+    <Folder Include="Features\Stacks\Commands\" />
+    <Folder Include="Features\Stacks\Queries\" />
+    <Folder Include="Features\Subjects\Commands\" />
+    <Folder Include="Features\Subjects\Queries\" />
+    <Folder Include="Features\Subsidiaries\Commands\" />
+    <Folder Include="Features\Subsidiaries\Queries\" />
+  </ItemGroup>
+
 </Project>

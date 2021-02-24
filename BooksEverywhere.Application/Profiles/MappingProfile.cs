@@ -12,6 +12,9 @@ namespace BooksEverywhere.Application.Profiles
         public MappingProfile()
         {
             CreateMap<Book, BookListVm>().ReverseMap();
+            CreateMap<Book, BookInfoVm>().ReverseMap();
+            CreateMap<Book, CreateBookCommand>().ReverseMap();
+
         }
     }
 }
