@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace GloboTicket.TicketManagement.Application.Exceptions
+namespace BooksEverywhere.Application.Exceptions
 {
     public class NotFoundException : ApplicationException
     {

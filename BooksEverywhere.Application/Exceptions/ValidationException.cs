@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using FluentValidation.Results;
 using System.Text;
 
-namespace GloboTicket.TicketManagement.Application.Exceptions
+namespace BooksEverywhere.Application.Exceptions
 {
     public class ValidationException : ApplicationException
     {
