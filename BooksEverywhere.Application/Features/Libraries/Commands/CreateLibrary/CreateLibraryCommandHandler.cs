@@ -28,7 +28,7 @@ namespace BooksEverywhere.Application.Features.Libraries.Commands.CreateLibrary
 
             if (validationResult.Errors.Count > 0)
             {
-                throw new GloboTicket.TicketManagement.Application.Exceptions.ValidationException(validationResult);
+                throw new Exceptions.ValidationException(validationResult);
             }
 
 

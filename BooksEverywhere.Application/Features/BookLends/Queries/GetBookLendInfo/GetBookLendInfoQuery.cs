@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BooksEverywhere.Application.Features.BookLends.Queries.GetBookLendInfo
 {
-    class GetBookLendInfoQuery : IRequest
+    public class GetBookLendInfoQuery : IRequest<BookLendInfoVm>
     {
         public int Id { get; set; }
     }

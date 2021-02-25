@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BooksEverywhere.Application.Features.Subjects.Commands.UpdateSubject
 {
-    public class UpdateSubjectCommandHandler : IRequestHandler<UpdateSubjectCommand, int>
+    public class UpdateSubjectCommandHandler : IRequestHandler<UpdateSubjectCommand>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<Subject> _subjectsRepository;

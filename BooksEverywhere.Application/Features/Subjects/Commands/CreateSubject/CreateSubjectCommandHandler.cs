@@ -30,7 +30,7 @@ namespace BooksEverywhere.Application.Features.Subjects.Commands.CreateSubject
 
             if (validationResult.Errors.Count > 0)
             {
-                throw new GloboTicket.TicketManagement.Application.Exceptions.ValidationException(validationResult);
+                throw new Exceptions.ValidationException(validationResult);
             }
 
             var @subject = _mapper.Map<Subject>(request);

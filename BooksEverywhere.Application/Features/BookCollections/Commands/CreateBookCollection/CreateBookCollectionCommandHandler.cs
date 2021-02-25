@@ -29,7 +29,7 @@ namespace BooksEverywhere.Application.Features.BookCollections.Commands.CreateBo
 
             if (validationResult.Errors.Count > 0)
             {
-                throw new GloboTicket.TicketManagement.Application.Exceptions.ValidationException(validationResult);
+                throw new Exceptions.ValidationException(validationResult);
             }
 
             var @bookCollection = _mapper.Map<BookCollection>(request);

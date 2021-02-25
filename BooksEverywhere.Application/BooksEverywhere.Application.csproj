@@ -15,11 +15,4 @@
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\BookLends\Commands\" />
-    <Folder Include="Features\BookLends\Queries\" />
-    <Folder Include="Features\Subsidiaries\Commands\" />
-    <Folder Include="Features\Subsidiaries\Queries\" />
-  </ItemGroup>
-
 </Project>

@@ -28,7 +28,7 @@ namespace BooksEverywhere.Application.Features.Rooms.Commands.CreateRoom
 
             if (validationResult.Errors.Count > 0)
             {
-                throw new GloboTicket.TicketManagement.Application.Exceptions.ValidationException(validationResult);
+                throw new Exceptions.ValidationException(validationResult);
             }
 
             var @room = _mapper.Map<Room>(request);
