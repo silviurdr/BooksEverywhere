@@ -30,7 +30,7 @@ namespace BooksEverywhere.Application.Features.Books.Commands
 
             if (validationResult.Errors.Count > 0)
             {
-                throw new GloboTicket.TicketManagement.Application.Exceptions.ValidationException(validationResult);
+                throw new Exceptions.ValidationException(validationResult);
             }
 
             var @book = _mapper.Map<Book>(request);
