@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BooksEverywhere.Application.Interfaces.Persistence;
+using BooksEverywhere.Persistence.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -12,9 +14,9 @@ namespace BooksEverywhere.Persistence
         public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<BooksEverywhereDbContext>(options =>
-            {
-                options.UseSqlServer(configuration.GetConnectionString("BooksEverywhereConnectionString"));
-            });
+                options.UseSqlServer(configuration.GetConnectionString("BooksEverywhereConnectionString")));
+
+            services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRepository<>));
 
             return services;
         }
