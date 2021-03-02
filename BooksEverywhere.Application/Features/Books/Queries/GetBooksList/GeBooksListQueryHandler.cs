@@ -2,9 +2,7 @@
 using BooksEverywhere.Application.Interfaces.Persistence;
 using BooksEverywhere.Domain.Entities;
 using MediatR;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -13,7 +11,7 @@ namespace BooksEverywhere.Application.Features.Events
     public class GeBooksListQueryHandler : IRequestHandler<GetBooksListQuery, List<BookListVm>>
     {
         private readonly IMapper _mapper;
-        private readonly Interfaces.Persistence.IAsyncRepository<Book> _bookRepository;
+        private readonly IAsyncRepository<Book> _bookRepository;
 
         public GeBooksListQueryHandler(IMapper mapper, IAsyncRepository<Book> bookRepository)
         {
@@ -28,3 +26,12 @@ namespace BooksEverywhere.Application.Features.Events
         }
     }
 }
+
+
+/*[HttpGet("all", Name = "GetAllBooks")]
+public async Task<ActionResult<List<BookListVm>>> GetAllBooks()
+{
+    var dtos = await _mediator.Send(new GetBooksListQuery());
+    return Ok(dtos);
+}
+*/
