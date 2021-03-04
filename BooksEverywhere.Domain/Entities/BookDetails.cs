@@ -12,5 +12,7 @@ namespace BooksEverywhere.Domain.Entities
         public ICollection<Subject> Subjects { get; set; }
         public string Description { get; set; }
         public ICollection<BookEdition> BookEditions { get; set; }
+        public Book Book { get; set; }
+        public int BookId { get; set; }
     }
 }

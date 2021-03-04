@@ -4,12 +4,14 @@ using System.Text;
 
 namespace BooksEverywhere.Domain.Entities
 {
-    public class Author
+    public class BookTag
     {
         public int Id { get; set; }
+        public int BookNumber { get; set; }
         public string AuthorCode { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public int PublishedYear { get; set; }
+        public string Copy { get; set; }
+        public string VolumeNumber { get; set; }
         public Book Book { get; set; }
         public int BookId { get; set; }
     }

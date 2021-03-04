@@ -10,5 +10,7 @@ namespace BooksEverywhere.Domain.Entities
         public Subject Subject { get; set; }
         public string AuthorReference { get; set; }
         public string PublishedYear { get; set; }
+        public Book Book { get; set; }
+        public int BookId { get; set; }
     }
 }

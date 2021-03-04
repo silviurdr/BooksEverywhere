@@ -11,6 +11,8 @@ namespace BooksEverywhere.Domain.Entities
         public BookStatus BookStatus { get; set; }
         public BookCollection BookCollection { get; set; }
         public BookDetails Details { get; set; }
+        public Author Author { get; set; }
+        public BookTag BookTag { get; set; }
         public BookCallNumber BookCallNumber { get; set; }
     }
 }

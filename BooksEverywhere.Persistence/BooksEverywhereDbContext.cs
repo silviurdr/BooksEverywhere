@@ -15,5 +15,10 @@ namespace BooksEverywhere.Persistence
         }
         public DbSet<Book> Books { get; set; }
         public DbSet<BookCollection> BookCollections { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(BooksEverywhereDbContext).Assembly);
+        }
     }
 }
