@@ -9,6 +9,7 @@ namespace BooksEverywhere.Domain.Entities
         public int Id { get; set; }
         public decimal CreatedOn { get; set; }
         public string Content { get; set; }
+        public BookLend BookLend { get; set; }
         public int BookLendId { get; set; }
     }
 }

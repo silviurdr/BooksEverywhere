@@ -8,6 +8,7 @@ namespace BooksEverywhere.Domain.Entities
     public class Fine
     {
         public int Id { get; set; }
+        public BookLend BookLend { get; set; }
         public int BookLendId { get; set; }
         public double Amount { get; set; }
         public LendStatus LendStatus { get; set; }
