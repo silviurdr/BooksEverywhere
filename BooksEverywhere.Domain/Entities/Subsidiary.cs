@@ -8,5 +8,7 @@ namespace BooksEverywhere.Domain.Entities
     {
         public int Id { get; set; }
         public LibraryInfo LibraryInfo { get; set; }
+        public Library Library { get; set; }
+        public int LibraryId { get; set; }
     }
 }

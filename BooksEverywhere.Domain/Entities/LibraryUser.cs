@@ -17,5 +17,7 @@ namespace BooksEverywhere.Domain.Entities
         public Account Account { get; set; }
         public LibraryCard LibraryCard { get; set; }
         public BookLend BookLend { get; set; }
+        public Library Library { get; set; }
+        public int LibraryId { get; set; }
     }
 }

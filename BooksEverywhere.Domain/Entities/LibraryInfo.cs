@@ -14,5 +14,7 @@ namespace BooksEverywhere.Domain.Entities
         public string Email { get; set; }
         public string Schedule { get; set; }
         public ICollection<Room> Rooms { get; set; }
+        public Library Library { get; set; }
+        public int LibraryId { get; set; }
     }
 }

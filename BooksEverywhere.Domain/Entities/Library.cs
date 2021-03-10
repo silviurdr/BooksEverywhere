@@ -11,5 +11,6 @@ namespace BooksEverywhere.Domain.Entities
         public ICollection<Subsidiary> Subsidiaries { get; set; }
         public ICollection<BookCollection> BooksCollection { get; set; }
         public ICollection<LibraryUser> Users { get; set; }
+        public ICollection<Room> Rooms { get; set; }
     }
 }

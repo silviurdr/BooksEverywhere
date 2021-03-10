@@ -9,5 +9,7 @@ namespace BooksEverywhere.Domain.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public ICollection<Stack> Stacks { get; set; }
+        public Library Library { get; set; }
+        public int LibraryId { get; set; }
     }
 }
