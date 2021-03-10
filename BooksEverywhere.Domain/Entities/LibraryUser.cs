@@ -15,5 +15,7 @@ namespace BooksEverywhere.Domain.Entities
         public string Photo { get; set; }
         public UserType UserType { get; set; }
         public Account Account { get; set; }
+        public LibraryCard LibraryCard { get; set; }
+        public BookLend BookLend { get; set; }
     }
 }
