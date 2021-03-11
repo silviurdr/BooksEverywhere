@@ -8,6 +8,22 @@ namespace BooksEverywhere.Persistence.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Author",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AuthorCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BookDetailsId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Author", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Library",
                 columns: table => new
                 {
@@ -231,19 +247,26 @@ namespace BooksEverywhere.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Author",
+                name: "BookDetails",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    AuthorCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BookDetailsId = table.Column<int>(type: "int", nullable: false)
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AuthorId1 = table.Column<int>(type: "int", nullable: true),
+                    AuthorId = table.Column<int>(type: "int", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BookId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Author", x => x.Id);
+                    table.PrimaryKey("PK_BookDetails", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_BookDetails_Author_AuthorId1",
+                        column: x => x.AuthorId1,
+                        principalTable: "Author",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -262,6 +285,12 @@ namespace BooksEverywhere.Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_BookEdition", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_BookEdition_BookDetails_BookDetailsId",
+                        column: x => x.BookDetailsId,
+                        principalTable: "BookDetails",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -276,6 +305,12 @@ namespace BooksEverywhere.Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Subject", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Subject_BookDetails_BookDetailsId",
+                        column: x => x.BookDetailsId,
+                        principalTable: "BookDetails",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -428,27 +463,6 @@ namespace BooksEverywhere.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "BookDetails",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BookId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_BookDetails", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_BookDetails_Books_BookId",
-                        column: x => x.BookId,
-                        principalTable: "Books",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "BookTag",
                 columns: table => new
                 {
@@ -479,12 +493,6 @@ namespace BooksEverywhere.Persistence.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Author_BookDetailsId",
-                table: "Author",
-                column: "BookDetailsId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
                 name: "IX_BookCallNumber_BookId",
                 table: "BookCallNumber",
                 column: "BookId",
@@ -510,6 +518,11 @@ namespace BooksEverywhere.Persistence.Migrations
                 name: "IX_BookCollections_RoomLocationId",
                 table: "BookCollections",
                 column: "RoomLocationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BookDetails_AuthorId1",
+                table: "BookDetails",
+                column: "AuthorId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_BookDetails_BookId",
@@ -613,41 +626,22 @@ namespace BooksEverywhere.Persistence.Migrations
                 column: "LibraryInfoId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Author_BookDetails_BookDetailsId",
-                table: "Author",
-                column: "BookDetailsId",
-                principalTable: "BookDetails",
+                name: "FK_BookDetails_Books_BookId",
+                table: "BookDetails",
+                column: "BookId",
+                principalTable: "Books",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_BookEdition_BookDetails_BookDetailsId",
-                table: "BookEdition",
-                column: "BookDetailsId",
-                principalTable: "BookDetails",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Subject_BookDetails_BookDetailsId",
-                table: "Subject",
-                column: "BookDetailsId",
-                principalTable: "BookDetails",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Subject_BookDetails_BookDetailsId",
-                table: "Subject");
+                name: "FK_BookDetails_Books_BookId",
+                table: "BookDetails");
 
             migrationBuilder.DropTable(
                 name: "Account");
-
-            migrationBuilder.DropTable(
-                name: "Author");
 
             migrationBuilder.DropTable(
                 name: "BookCallNumber");
@@ -680,9 +674,6 @@ namespace BooksEverywhere.Persistence.Migrations
                 name: "LibraryUser");
 
             migrationBuilder.DropTable(
-                name: "BookDetails");
-
-            migrationBuilder.DropTable(
                 name: "Books");
 
             migrationBuilder.DropTable(
@@ -705,6 +696,12 @@ namespace BooksEverywhere.Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "Library");
+
+            migrationBuilder.DropTable(
+                name: "BookDetails");
+
+            migrationBuilder.DropTable(
+                name: "Author");
         }
     }
 }

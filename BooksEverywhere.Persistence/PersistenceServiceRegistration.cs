@@ -18,6 +18,8 @@ namespace BooksEverywhere.Persistence
 
             services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRepository<>));
 
+            services.AddScoped(typeof(IBookRepository), typeof(BookRepository));
+
             return services;
         }
     }

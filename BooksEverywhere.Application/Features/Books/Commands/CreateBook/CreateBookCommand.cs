@@ -9,8 +9,6 @@ namespace BooksEverywhere.Application.Features.Books.Commands
 {
     public class CreateBookCommand: IRequest<int>
     {
-        public BookStatus BookStatus { get; set; }
-        public BookCollection BookCollection { get; set; }
-        public BookDetails Details { get; set; }
+        public BookDetails BookDetails { get; set; }
     }
 }

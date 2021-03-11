@@ -9,10 +9,11 @@ namespace BooksEverywhere.Domain.Entities
         public int Id { get; set; }
         public string Title { get; set; }
         public Author Author { get; set; }
+        public int  AuthorId { get; set; }
         public ICollection<Subject> Subjects { get; set; }
         public string Description { get; set; }
         public ICollection<BookEdition> BookEditions { get; set; }
-        public Book Book { get; set; }
         public int BookId { get; set; }
+        public Book Book { get; set; }
     }
 }

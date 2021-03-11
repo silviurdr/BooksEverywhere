@@ -11,6 +11,6 @@ namespace BooksEverywhere.Application.Features.Events
         public int Id { get; set; }
         public BookStatus BookStatus { get; set; }
         public BookCollection BookCollection { get; set; }
-        public BookDetails Details { get; set; }
+        public BookDetails BookDetails { get; set; }
     }
 }

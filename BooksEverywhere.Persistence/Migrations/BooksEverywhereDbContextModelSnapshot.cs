@@ -67,9 +67,6 @@ namespace BooksEverywhere.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BookDetailsId")
-                        .IsUnique();
-
                     b.ToTable("Author");
                 });
 
@@ -160,6 +157,12 @@ namespace BooksEverywhere.Persistence.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("AuthorId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AuthorId1")
+                        .HasColumnType("int");
+
                     b.Property<int>("BookId")
                         .HasColumnType("int");
 
@@ -170,6 +173,8 @@ namespace BooksEverywhere.Persistence.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AuthorId1");
 
                     b.HasIndex("BookId")
                         .IsUnique();
@@ -575,17 +580,6 @@ namespace BooksEverywhere.Persistence.Migrations
                     b.Navigation("LibraryUser");
                 });
 
-            modelBuilder.Entity("BooksEverywhere.Domain.Entities.Author", b =>
-                {
-                    b.HasOne("BooksEverywhere.Domain.Entities.BookDetails", "BookDetails")
-                        .WithOne("Author")
-                        .HasForeignKey("BooksEverywhere.Domain.Entities.Author", "BookDetailsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("BookDetails");
-                });
-
             modelBuilder.Entity("BooksEverywhere.Domain.Entities.Book", b =>
                 {
                     b.HasOne("BooksEverywhere.Domain.Entities.Shelf", null)
@@ -637,11 +631,17 @@ namespace BooksEverywhere.Persistence.Migrations
 
             modelBuilder.Entity("BooksEverywhere.Domain.Entities.BookDetails", b =>
                 {
+                    b.HasOne("BooksEverywhere.Domain.Entities.Author", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId1");
+
                     b.HasOne("BooksEverywhere.Domain.Entities.Book", "Book")
-                        .WithOne("Details")
+                        .WithOne("BookDetails")
                         .HasForeignKey("BooksEverywhere.Domain.Entities.BookDetails", "BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Author");
 
                     b.Navigation("Book");
                 });
@@ -798,15 +798,13 @@ namespace BooksEverywhere.Persistence.Migrations
 
                     b.Navigation("BookCollection");
 
-                    b.Navigation("BookTag");
+                    b.Navigation("BookDetails");
 
-                    b.Navigation("Details");
+                    b.Navigation("BookTag");
                 });
 
             modelBuilder.Entity("BooksEverywhere.Domain.Entities.BookDetails", b =>
                 {
-                    b.Navigation("Author");
-
                     b.Navigation("BookEditions");
 
                     b.Navigation("Subjects");

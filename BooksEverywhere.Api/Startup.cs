@@ -31,7 +31,8 @@ namespace BooksEverywhere.Api
             services.AddApplicationServices();
             services.AddPersistenceServices(Configuration);
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddCors(options =>
             {

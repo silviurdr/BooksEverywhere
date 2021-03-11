@@ -12,6 +12,6 @@ namespace BooksEverywhere.Application.Features.Books.Commands.CreateBook
 
         }
 
-        public CreateBookDto Category { get; set; }
+        public CreateBookDto Book { get; set; }
     }
 }

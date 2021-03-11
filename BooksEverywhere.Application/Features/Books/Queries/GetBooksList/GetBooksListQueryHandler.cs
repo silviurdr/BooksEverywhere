@@ -11,9 +11,9 @@ namespace BooksEverywhere.Application.Features.Events
     public class GeBooksListQueryHandler : IRequestHandler<GetBooksListQuery, List<BookListVm>>
     {
         private readonly IMapper _mapper;
-        private readonly IAsyncRepository<Book> _bookRepository;
+        private readonly IBookRepository _bookRepository;
 
-        public GeBooksListQueryHandler(IMapper mapper, IAsyncRepository<Book> bookRepository)
+        public GeBooksListQueryHandler(IMapper mapper, IBookRepository bookRepository)
         {
             _mapper = mapper;
             _bookRepository = bookRepository;
@@ -22,7 +22,9 @@ namespace BooksEverywhere.Application.Features.Events
         {
             var allBooks = (await _bookRepository.ListAllAsync());
 
-            return _mapper.Map<List<BookListVm>>(allBooks);
+            var mappedBooks = _mapper.Map<List<BookListVm>>(allBooks);
+
+            return mappedBooks;
         }
     }
 }

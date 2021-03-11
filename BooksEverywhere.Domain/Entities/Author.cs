@@ -10,7 +10,6 @@ namespace BooksEverywhere.Domain.Entities
         public string AuthorCode { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public BookDetails BookDetails { get; set; }
         public int BookDetailsId { get; set; }
     }
 }
