@@ -9,7 +9,10 @@ namespace BooksEverywhere.Persistence.Configurations
 {
     class BookLendConfiguration : IEntityTypeConfiguration<BookLend>
     {
+
         public void Configure(EntityTypeBuilder<BookLend> builder)
+
+
         {
             builder.HasOne(bl => bl.Fine)
                 .WithOne(f => f.BookLend)
@@ -19,6 +22,14 @@ namespace BooksEverywhere.Persistence.Configurations
             builder.HasMany(bl => bl.Notifications)
                 .WithOne(n => n.BookLend)
                 .HasForeignKey(n => n.BookLendId);
+
+            builder.Ignore(p => p.BooksList);
+
+            builder.Property(bl => bl.CreationDate)
+                .IsRequired();
+
+            builder.Property(bl => bl.DueDate)
+                .IsRequired();
         }
     }
 }

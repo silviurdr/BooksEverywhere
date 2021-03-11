@@ -24,6 +24,18 @@ namespace BooksEverywhere.Persistence.Configurations
                 .WithOne(bl => bl.LibraryUser)
                 .HasForeignKey<BookLend>(bl => bl.LibraryUserId)
                 .IsRequired(false);
+
+            builder.Property(lu => lu.Name)
+                .IsRequired()
+                .HasMaxLength(200);
+
+            builder.Property(lu => lu.EmailAddress)
+                .IsRequired()
+                .HasMaxLength(254);
+
+            builder.Property(lu => lu.PhoneNumber)
+                .IsRequired()
+                .HasMaxLength(100);
         }
     }
 }

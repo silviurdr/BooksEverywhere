@@ -34,6 +34,7 @@ namespace BooksEverywhere.Persistence.Configurations
             builder.HasMany(l => l.Rooms)
                 .WithOne(r => r.Library)
                 .HasForeignKey(r => r.LibraryId);
+
         }
     }
 }
