@@ -24,7 +24,7 @@ namespace BooksEverywhere.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Library",
+                name: "Libraries",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -32,7 +32,7 @@ namespace BooksEverywhere.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Library", x => x.Id);
+                    table.PrimaryKey("PK_Libraries", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -53,9 +53,9 @@ namespace BooksEverywhere.Persistence.Migrations
                 {
                     table.PrimaryKey("PK_LibraryInfo", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_LibraryInfo_Library_LibraryId",
+                        name: "FK_LibraryInfo_Libraries_LibraryId",
                         column: x => x.LibraryId,
-                        principalTable: "Library",
+                        principalTable: "Libraries",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -78,9 +78,9 @@ namespace BooksEverywhere.Persistence.Migrations
                 {
                     table.PrimaryKey("PK_LibraryUser", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_LibraryUser_Library_LibraryId",
+                        name: "FK_LibraryUser_Libraries_LibraryId",
                         column: x => x.LibraryId,
-                        principalTable: "Library",
+                        principalTable: "Libraries",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -99,9 +99,9 @@ namespace BooksEverywhere.Persistence.Migrations
                 {
                     table.PrimaryKey("PK_Room", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Room_Library_LibraryId",
+                        name: "FK_Room_Libraries_LibraryId",
                         column: x => x.LibraryId,
-                        principalTable: "Library",
+                        principalTable: "Libraries",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -125,9 +125,9 @@ namespace BooksEverywhere.Persistence.Migrations
                 {
                     table.PrimaryKey("PK_Subsidiary", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Subsidiary_Library_LibraryId",
+                        name: "FK_Subsidiary_Libraries_LibraryId",
                         column: x => x.LibraryId,
-                        principalTable: "Library",
+                        principalTable: "Libraries",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -449,9 +449,9 @@ namespace BooksEverywhere.Persistence.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BookCollections_Library_LibraryId",
+                        name: "FK_BookCollections_Libraries_LibraryId",
                         column: x => x.LibraryId,
-                        principalTable: "Library",
+                        principalTable: "Libraries",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -695,7 +695,7 @@ namespace BooksEverywhere.Persistence.Migrations
                 name: "Subject");
 
             migrationBuilder.DropTable(
-                name: "Library");
+                name: "Libraries");
 
             migrationBuilder.DropTable(
                 name: "BookDetails");

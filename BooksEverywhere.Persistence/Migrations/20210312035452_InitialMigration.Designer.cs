@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BooksEverywhere.Persistence.Migrations
 {
     [DbContext(typeof(BooksEverywhereDbContext))]
-    [Migration("20210311042159_InitialMigration")]
+    [Migration("20210312035452_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -312,7 +312,7 @@ namespace BooksEverywhere.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Library");
+                    b.ToTable("Libraries");
                 });
 
             modelBuilder.Entity("BooksEverywhere.Domain.Entities.LibraryCard", b =>

@@ -15,6 +15,7 @@ namespace BooksEverywhere.Persistence
         }
         public DbSet<Book> Books { get; set; }
         public DbSet<BookCollection> BookCollections { get; set; }
+        public DbSet<Library> Libraries { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

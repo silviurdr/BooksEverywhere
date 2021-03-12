@@ -39,8 +39,6 @@ namespace BooksEverywhere.Api
             {
                 options.AddPolicy("Open", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             });
-
-
         }
 
         private void AddSwagger(IServiceCollection services)

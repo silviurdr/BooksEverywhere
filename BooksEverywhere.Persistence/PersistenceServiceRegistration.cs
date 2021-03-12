@@ -17,8 +17,8 @@ namespace BooksEverywhere.Persistence
                 options.UseSqlServer(configuration.GetConnectionString("BooksEverywhereConnectionString")));
 
             services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRepository<>));
-
             services.AddScoped(typeof(IBookRepository), typeof(BookRepository));
+            services.AddScoped(typeof(ILibraryRepository), typeof(LibraryRepository));
 
             return services;
         }

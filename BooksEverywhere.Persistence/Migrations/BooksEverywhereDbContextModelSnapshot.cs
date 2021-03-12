@@ -310,7 +310,7 @@ namespace BooksEverywhere.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Library");
+                    b.ToTable("Libraries");
                 });
 
             modelBuilder.Entity("BooksEverywhere.Domain.Entities.LibraryCard", b =>

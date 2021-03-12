@@ -10,9 +10,9 @@ namespace BooksEverywhere.Application.Features.Libraries.Queries.GetLibraryInfo
     class GetLibraryInfoQueryHandler : IRequestHandler<GetLibraryInfoQuery, LibraryInfoVm>
     {
         private readonly IMapper _mapper;
-        private readonly IAsyncRepository<Library> _libraryRepository;
+        private readonly ILibraryRepository _libraryRepository;
 
-        public GetLibraryInfoQueryHandler(IMapper mapper, IAsyncRepository<Library> libraryRepository)
+        public GetLibraryInfoQueryHandler(IMapper mapper, ILibraryRepository libraryRepository)
         {
             _mapper = mapper;
             _libraryRepository = libraryRepository;
