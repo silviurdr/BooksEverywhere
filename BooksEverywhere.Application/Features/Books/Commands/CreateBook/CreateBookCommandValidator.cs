@@ -11,6 +11,10 @@ namespace BooksEverywhere.Application.Features.Books.Commands.CreateBook
         {
             RuleFor(p => p.BookDetails)
                 .NotEmpty();
+
+            RuleFor(p => p.BookDetails.Author)
+                .NotEmpty().WithMessage("{PropertyName} is required.");
+
         }
     }
 }

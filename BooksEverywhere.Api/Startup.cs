@@ -1,3 +1,4 @@
+using BooksEverywhere.Api.Middleware;
 using BooksEverywhere.Application;
 using BooksEverywhere.Persistence;
 using Microsoft.AspNetCore.Builder;
@@ -70,6 +71,8 @@ namespace BooksEverywhere.Api
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Books Everywhere API");
             });
+
+            app.UseCustomExceptionHandler();
 
             app.UseCors("Open");
 

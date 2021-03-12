@@ -22,9 +22,7 @@ namespace BooksEverywhere.Application.Features.Events
         {
             var allBooks = (await _bookRepository.ListAllAsync());
 
-            var mappedBooks = _mapper.Map<List<BookListVm>>(allBooks);
-
-            return mappedBooks;
+            return _mapper.Map<List<BookListVm>>(allBooks);
         }
     }
 }
