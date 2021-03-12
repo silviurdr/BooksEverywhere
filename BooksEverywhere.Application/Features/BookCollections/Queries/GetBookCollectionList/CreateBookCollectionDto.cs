@@ -5,10 +5,10 @@ using System.Text;
 
 namespace BooksEverywhere.Application.Features.BookCollections.Queries.GetBookCollectionList
 {
-    public class BookCollectionListVm
+    public class CreateBookCollectionDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public Room RoomLocation { get; set; }
+        public int LibraryId { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BooksEverywhere.Application.Interfaces.Persistence
 {
-    interface ISubsidiaryRepository: IAsyncRepository<Subsidiary>
+    public interface ISubsidiaryRepository: IAsyncRepository<Subsidiary>
     {
     }
 }
