@@ -6,6 +6,7 @@ using BooksEverywhere.Application.Features.BookLends.Commands.CreateBookLend;
 using BooksEverywhere.Application.Features.BookLends.Queries.GetBookLendInfo;
 using BooksEverywhere.Application.Features.BookLends.Queries.GetBookLendsList;
 using BooksEverywhere.Application.Features.Books.Commands;
+using BooksEverywhere.Application.Features.Books.Commands.UpdateBook;
 using BooksEverywhere.Application.Features.Events;
 using BooksEverywhere.Application.Features.Libraries.Commands.CreateLibrary;
 using BooksEverywhere.Application.Features.Libraries.Queries.GetLibraryInfo;
@@ -38,6 +39,7 @@ namespace BooksEverywhere.Application.Profiles
             CreateMap<Book, BookListVm>().ReverseMap();
             CreateMap<Book, BookInfoVm>().ReverseMap();
             CreateMap<Book, CreateBookCommand>().ReverseMap();
+            CreateMap<Book, UpdateBookCommand>().ReverseMap();
 
             CreateMap<BookCollection, BookCollectionListVm>().ReverseMap();
             CreateMap<Book, BookCollectionInfoVm>().ReverseMap();

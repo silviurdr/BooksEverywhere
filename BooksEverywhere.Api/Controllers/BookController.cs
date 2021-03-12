@@ -1,5 +1,7 @@
 ﻿using BooksEverywhere.Application.Features.Books.Commands;
 using BooksEverywhere.Application.Features.Books.Commands.CreateBook;
+using BooksEverywhere.Application.Features.Books.Commands.DeleteBook;
+using BooksEverywhere.Application.Features.Books.Commands.UpdateBook;
 using BooksEverywhere.Application.Features.Events;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -44,5 +46,25 @@ namespace BooksEverywhere.Api.Controllers
             return Ok(response);
         }
 
+        [HttpPut("id", Name = "UpdateBook")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult> Update([FromBody] UpdateBookCommand updateBookCommand)
+        {
+            await _mediator.Send(updateBookCommand);
+            return NoContent();
+        }
+
+        [HttpDelete(Name = "DeleteBook")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var deleteBookCommand = new DeleteBookCommand() { Id = id};
+            await _mediator.Send(deleteBookCommand);
+            return NoContent();
+        }
     }
 }
