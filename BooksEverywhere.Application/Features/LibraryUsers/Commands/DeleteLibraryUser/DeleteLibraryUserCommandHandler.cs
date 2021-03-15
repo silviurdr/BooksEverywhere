@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BooksEverywhere.Application.Features.LibraryUsers.Commands.DeleteLibraryUser
 {
-    class DeleteLibraryUserCommandHandler : IRequestHandler<DeleteLibraryUserCommand>
+    public class DeleteLibraryUserCommandHandler : IRequestHandler<DeleteLibraryUserCommand>
     {
         private readonly IAsyncRepository<LibraryUser> _libraryUserRepository;
 
