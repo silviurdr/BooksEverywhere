@@ -50,7 +50,7 @@ namespace BooksEverywhere.Api.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult> Update([FromBody] UpdateBookCommand updateBookCommand)
+        public async Task<ActionResult> UpdateBook([FromBody] UpdateBookCommand updateBookCommand)
         {
             await _mediator.Send(updateBookCommand);
             return NoContent();
@@ -60,7 +60,7 @@ namespace BooksEverywhere.Api.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> DeleteBook(int id)
         {
             var deleteBookCommand = new DeleteBookCommand() { Id = id};
             await _mediator.Send(deleteBookCommand);

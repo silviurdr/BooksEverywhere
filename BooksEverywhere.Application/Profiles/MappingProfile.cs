@@ -17,6 +17,7 @@ using BooksEverywhere.Application.Features.LibraryUsers.Commands.UpdateLibraryUs
 using BooksEverywhere.Application.Features.LibraryUsers.Queries.GetLibraryUserInfo;
 using BooksEverywhere.Application.Features.LibraryUsers.Queries.GetLibraryUsersList;
 using BooksEverywhere.Application.Features.Rooms.Commands.CreateRoom;
+using BooksEverywhere.Application.Features.Rooms.Commands.UpdateRoom;
 using BooksEverywhere.Application.Features.Rooms.Queries.GetRoomInfo;
 using BooksEverywhere.Application.Features.Rooms.Queries.GetRoomsList;
 using BooksEverywhere.Application.Features.Stacks.Commands.CreateStack;
@@ -65,6 +66,7 @@ namespace BooksEverywhere.Application.Profiles
             CreateMap<Room, RoomsListVm>().ReverseMap();
             CreateMap<Room, RoomInfoVm>().ReverseMap();
             CreateMap<Room, CreateRoomCommand>().ReverseMap();
+            CreateMap<Room, UpdateRoomCommand>().ReverseMap();
 
             CreateMap<Stack, StacksListVm>().ReverseMap();
             CreateMap<Stack, StackInfoVm>().ReverseMap();

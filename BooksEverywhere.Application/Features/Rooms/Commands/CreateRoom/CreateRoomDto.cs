@@ -1,14 +1,12 @@
-﻿using BooksEverywhere.Domain.Entities;
-using MediatR;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BooksEverywhere.Application.Features.Rooms.Commands.CreateRoom
 {
-    public class CreateRoomCommand: IRequest<int>
+    public class CreateRoomDto
     {
+        public int RoomId { get; set; }
         public string Name { get; set; }
-        public int LibraryId { get; set; }
     }
 }
