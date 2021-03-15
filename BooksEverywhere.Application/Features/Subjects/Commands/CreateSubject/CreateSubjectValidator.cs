@@ -9,8 +9,7 @@ namespace BooksEverywhere.Application.Features.Subjects.Commands.CreateSubject
     {
         public CreateSubjectValidator()
         {
-            RuleFor(p => p.StackCode)
-                .NotEmpty();
+
         }
     }
 }

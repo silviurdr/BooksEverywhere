@@ -25,6 +25,7 @@ using BooksEverywhere.Application.Features.Stacks.Commands.UpdateStack;
 using BooksEverywhere.Application.Features.Stacks.Queries.GetStackInfo;
 using BooksEverywhere.Application.Features.Stacks.Queries.GetStacksList;
 using BooksEverywhere.Application.Features.Subjects.Commands.CreateSubject;
+using BooksEverywhere.Application.Features.Subjects.Commands.UpdateSubject;
 using BooksEverywhere.Application.Features.Subjects.Queries.GetSubjectInfo;
 using BooksEverywhere.Application.Features.Subjects.Queries.GetSubjectsList;
 using BooksEverywhere.Application.Features.Subsidiaries.Commands.CreateSubsidiary;
@@ -77,6 +78,7 @@ namespace BooksEverywhere.Application.Profiles
             CreateMap<Subject, SubjectsListVm>().ReverseMap();
             CreateMap<Subject, SubjectInfoVm>().ReverseMap();
             CreateMap<Subject, CreateSubjectCommand>().ReverseMap();
+            CreateMap<Subject, UpdateSubjectCommand>().ReverseMap();
 
             CreateMap<Subsidiary, SubsidiariesListVm>().ReverseMap();
             CreateMap<Subsidiary, SubsidiaryInfoVm>().ReverseMap();

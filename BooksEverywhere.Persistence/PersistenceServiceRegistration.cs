@@ -21,6 +21,8 @@ namespace BooksEverywhere.Persistence
             services.AddScoped(typeof(ILibraryRepository), typeof(LibraryRepository));
             services.AddScoped(typeof(IBookLendRepository), typeof(BookLendRepository));
             services.AddScoped(typeof(ILibraryUserRepository), typeof(LibraryUserRepository));
+            services.AddScoped(typeof(IStackRepository), typeof(StackRepository));
+            services.AddScoped(typeof(ISubjectRepository), typeof(SubjectRepository));
 
             return services;
         }
