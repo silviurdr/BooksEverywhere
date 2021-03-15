@@ -9,8 +9,6 @@ namespace BooksEverywhere.Application.Features.Stacks.Commands.CreateStack
     {
         public CreateStackValidator()
         {
-            RuleFor(p => p.Shelves)
-                .NotEmpty();
         }
     }
 }

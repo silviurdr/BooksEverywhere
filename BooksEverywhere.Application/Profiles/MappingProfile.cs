@@ -21,6 +21,7 @@ using BooksEverywhere.Application.Features.Rooms.Commands.UpdateRoom;
 using BooksEverywhere.Application.Features.Rooms.Queries.GetRoomInfo;
 using BooksEverywhere.Application.Features.Rooms.Queries.GetRoomsList;
 using BooksEverywhere.Application.Features.Stacks.Commands.CreateStack;
+using BooksEverywhere.Application.Features.Stacks.Commands.UpdateStack;
 using BooksEverywhere.Application.Features.Stacks.Queries.GetStackInfo;
 using BooksEverywhere.Application.Features.Stacks.Queries.GetStacksList;
 using BooksEverywhere.Application.Features.Subjects.Commands.CreateSubject;
@@ -71,6 +72,7 @@ namespace BooksEverywhere.Application.Profiles
             CreateMap<Stack, StacksListVm>().ReverseMap();
             CreateMap<Stack, StackInfoVm>().ReverseMap();
             CreateMap<Stack, CreateStackCommand>().ReverseMap();
+            CreateMap<Stack, UpdateStackCommand>().ReverseMap();
 
             CreateMap<Subject, SubjectsListVm>().ReverseMap();
             CreateMap<Subject, SubjectInfoVm>().ReverseMap();

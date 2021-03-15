@@ -10,7 +10,5 @@ namespace BooksEverywhere.Application.Features.Stacks.Commands.UpdateStack
     {
         public int Id { get; set; }
         public string StackCode { get; set; }
-        public StackTag StackTag { get; set; }
-        public ICollection<Shelf> Shelves { get; set; }
     }
 }
