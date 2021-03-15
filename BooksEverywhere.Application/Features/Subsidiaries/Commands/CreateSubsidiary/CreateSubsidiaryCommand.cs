@@ -8,7 +8,6 @@ namespace BooksEverywhere.Application.Features.Subsidiaries.Commands.CreateSubsi
 {
     public class CreateSubsidiaryCommand: IRequest<int>
     {
-        public int Id { get; set; }
-        public LibraryInfo LibraryInfo { get; set; }
+        public int LibraryId { get; set; }
     }
 }

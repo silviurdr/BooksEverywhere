@@ -61,7 +61,7 @@ namespace BooksEverywhere.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "LibraryUser",
+                name: "LibraryUsers",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -76,9 +76,9 @@ namespace BooksEverywhere.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LibraryUser", x => x.Id);
+                    table.PrimaryKey("PK_LibraryUsers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_LibraryUser_Libraries_LibraryId",
+                        name: "FK_LibraryUsers_Libraries_LibraryId",
                         column: x => x.LibraryId,
                         principalTable: "Libraries",
                         principalColumn: "Id",
@@ -86,7 +86,7 @@ namespace BooksEverywhere.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Room",
+                name: "Rooms",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -97,15 +97,15 @@ namespace BooksEverywhere.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Room", x => x.Id);
+                    table.PrimaryKey("PK_Rooms", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Room_Libraries_LibraryId",
+                        name: "FK_Rooms_Libraries_LibraryId",
                         column: x => x.LibraryId,
                         principalTable: "Libraries",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Room_LibraryInfo_LibraryInfoId",
+                        name: "FK_Rooms_LibraryInfo_LibraryInfoId",
                         column: x => x.LibraryInfoId,
                         principalTable: "LibraryInfo",
                         principalColumn: "Id",
@@ -113,7 +113,7 @@ namespace BooksEverywhere.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Subsidiary",
+                name: "Subsidiaries",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -123,15 +123,15 @@ namespace BooksEverywhere.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Subsidiary", x => x.Id);
+                    table.PrimaryKey("PK_Subsidiaries", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Subsidiary_Libraries_LibraryId",
+                        name: "FK_Subsidiaries_Libraries_LibraryId",
                         column: x => x.LibraryId,
                         principalTable: "Libraries",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Subsidiary_LibraryInfo_LibraryInfoId",
+                        name: "FK_Subsidiaries_LibraryInfo_LibraryInfoId",
                         column: x => x.LibraryInfoId,
                         principalTable: "LibraryInfo",
                         principalColumn: "Id",
@@ -153,15 +153,15 @@ namespace BooksEverywhere.Persistence.Migrations
                 {
                     table.PrimaryKey("PK_Account", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Account_LibraryUser_LibraryUserId",
+                        name: "FK_Account_LibraryUsers_LibraryUserId",
                         column: x => x.LibraryUserId,
-                        principalTable: "LibraryUser",
+                        principalTable: "LibraryUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "BookLend",
+                name: "BookLends",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -174,11 +174,11 @@ namespace BooksEverywhere.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BookLend", x => x.Id);
+                    table.PrimaryKey("PK_BookLends", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_BookLend_LibraryUser_LibraryUserId",
+                        name: "FK_BookLends_LibraryUsers_LibraryUserId",
                         column: x => x.LibraryUserId,
-                        principalTable: "LibraryUser",
+                        principalTable: "LibraryUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -197,9 +197,9 @@ namespace BooksEverywhere.Persistence.Migrations
                 {
                     table.PrimaryKey("PK_LibraryCard", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_LibraryCard_LibraryUser_LibraryUserId",
+                        name: "FK_LibraryCard_LibraryUsers_LibraryUserId",
                         column: x => x.LibraryUserId,
-                        principalTable: "LibraryUser",
+                        principalTable: "LibraryUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -218,9 +218,9 @@ namespace BooksEverywhere.Persistence.Migrations
                 {
                     table.PrimaryKey("PK_Fine", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Fine_BookLend_BookLendId",
+                        name: "FK_Fine_BookLends_BookLendId",
                         column: x => x.BookLendId,
-                        principalTable: "BookLend",
+                        principalTable: "BookLends",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -239,9 +239,9 @@ namespace BooksEverywhere.Persistence.Migrations
                 {
                     table.PrimaryKey("PK_Notification", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Notification_BookLend_BookLendId",
+                        name: "FK_Notification_BookLends_BookLendId",
                         column: x => x.BookLendId,
-                        principalTable: "BookLend",
+                        principalTable: "BookLends",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -294,7 +294,7 @@ namespace BooksEverywhere.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Subject",
+                name: "Subjects",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -304,9 +304,9 @@ namespace BooksEverywhere.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Subject", x => x.Id);
+                    table.PrimaryKey("PK_Subjects", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Subject_BookDetails_BookDetailsId",
+                        name: "FK_Subjects_BookDetails_BookDetailsId",
                         column: x => x.BookDetailsId,
                         principalTable: "BookDetails",
                         principalColumn: "Id",
@@ -326,15 +326,15 @@ namespace BooksEverywhere.Persistence.Migrations
                 {
                     table.PrimaryKey("PK_StackTag", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_StackTag_Subject_SubjectId",
+                        name: "FK_StackTag_Subjects_SubjectId",
                         column: x => x.SubjectId,
-                        principalTable: "Subject",
+                        principalTable: "Subjects",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Stack",
+                name: "Stacks",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -345,15 +345,15 @@ namespace BooksEverywhere.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Stack", x => x.Id);
+                    table.PrimaryKey("PK_Stacks", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Stack_Room_RoomId",
+                        name: "FK_Stacks_Rooms_RoomId",
                         column: x => x.RoomId,
-                        principalTable: "Room",
+                        principalTable: "Rooms",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Stack_StackTag_StackTagId",
+                        name: "FK_Stacks_StackTag_StackTagId",
                         column: x => x.StackTagId,
                         principalTable: "StackTag",
                         principalColumn: "Id",
@@ -373,9 +373,9 @@ namespace BooksEverywhere.Persistence.Migrations
                 {
                     table.PrimaryKey("PK_Shelf", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Shelf_Stack_StackId",
+                        name: "FK_Shelf_Stacks_StackId",
                         column: x => x.StackId,
-                        principalTable: "Stack",
+                        principalTable: "Stacks",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -421,9 +421,9 @@ namespace BooksEverywhere.Persistence.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BookCallNumber_Subject_SubjectId",
+                        name: "FK_BookCallNumber_Subjects_SubjectId",
                         column: x => x.SubjectId,
-                        principalTable: "Subject",
+                        principalTable: "Subjects",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -455,9 +455,9 @@ namespace BooksEverywhere.Persistence.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BookCollections_Room_RoomLocationId",
+                        name: "FK_BookCollections_Rooms_RoomLocationId",
                         column: x => x.RoomLocationId,
-                        principalTable: "Room",
+                        principalTable: "Rooms",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -536,8 +536,8 @@ namespace BooksEverywhere.Persistence.Migrations
                 column: "BookDetailsId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BookLend_LibraryUserId",
-                table: "BookLend",
+                name: "IX_BookLends_LibraryUserId",
+                table: "BookLends",
                 column: "LibraryUserId",
                 unique: true);
 
@@ -571,8 +571,8 @@ namespace BooksEverywhere.Persistence.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_LibraryUser_LibraryId",
-                table: "LibraryUser",
+                name: "IX_LibraryUsers_LibraryId",
+                table: "LibraryUsers",
                 column: "LibraryId");
 
             migrationBuilder.CreateIndex(
@@ -581,13 +581,13 @@ namespace BooksEverywhere.Persistence.Migrations
                 column: "BookLendId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Room_LibraryId",
-                table: "Room",
+                name: "IX_Rooms_LibraryId",
+                table: "Rooms",
                 column: "LibraryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Room_LibraryInfoId",
-                table: "Room",
+                name: "IX_Rooms_LibraryInfoId",
+                table: "Rooms",
                 column: "LibraryInfoId");
 
             migrationBuilder.CreateIndex(
@@ -596,13 +596,13 @@ namespace BooksEverywhere.Persistence.Migrations
                 column: "StackId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Stack_RoomId",
-                table: "Stack",
+                name: "IX_Stacks_RoomId",
+                table: "Stacks",
                 column: "RoomId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Stack_StackTagId",
-                table: "Stack",
+                name: "IX_Stacks_StackTagId",
+                table: "Stacks",
                 column: "StackTagId");
 
             migrationBuilder.CreateIndex(
@@ -611,18 +611,18 @@ namespace BooksEverywhere.Persistence.Migrations
                 column: "SubjectId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Subject_BookDetailsId",
-                table: "Subject",
+                name: "IX_Subjects_BookDetailsId",
+                table: "Subjects",
                 column: "BookDetailsId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Subsidiary_LibraryId",
-                table: "Subsidiary",
+                name: "IX_Subsidiaries_LibraryId",
+                table: "Subsidiaries",
                 column: "LibraryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Subsidiary_LibraryInfoId",
-                table: "Subsidiary",
+                name: "IX_Subsidiaries_LibraryInfoId",
+                table: "Subsidiaries",
                 column: "LibraryInfoId");
 
             migrationBuilder.AddForeignKey(
@@ -665,13 +665,13 @@ namespace BooksEverywhere.Persistence.Migrations
                 name: "Notification");
 
             migrationBuilder.DropTable(
-                name: "Subsidiary");
+                name: "Subsidiaries");
 
             migrationBuilder.DropTable(
-                name: "BookLend");
+                name: "BookLends");
 
             migrationBuilder.DropTable(
-                name: "LibraryUser");
+                name: "LibraryUsers");
 
             migrationBuilder.DropTable(
                 name: "Books");
@@ -680,10 +680,10 @@ namespace BooksEverywhere.Persistence.Migrations
                 name: "Shelf");
 
             migrationBuilder.DropTable(
-                name: "Stack");
+                name: "Stacks");
 
             migrationBuilder.DropTable(
-                name: "Room");
+                name: "Rooms");
 
             migrationBuilder.DropTable(
                 name: "StackTag");
@@ -692,7 +692,7 @@ namespace BooksEverywhere.Persistence.Migrations
                 name: "LibraryInfo");
 
             migrationBuilder.DropTable(
-                name: "Subject");
+                name: "Subjects");
 
             migrationBuilder.DropTable(
                 name: "Libraries");

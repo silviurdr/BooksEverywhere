@@ -10,5 +10,6 @@ namespace BooksEverywhere.Application.Features.Subsidiaries.Queries.GetSubsidiar
     {
         public int Id { get; set; }
         public LibraryInfo LibraryInfo { get; set; }
+        public int LibraryId { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BooksEverywhere.Application.Features.BookCollections.Commands.CreateBookCollection;
+using BooksEverywhere.Application.Features.BookCollections.Commands.UpdateBookCollection;
 using BooksEverywhere.Application.Features.BookCollections.Queries.GetBookCollectionList;
 using BooksEverywhere.Application.Features.BookCollections.Queries.GetBookCollectionsList;
 using BooksEverywhere.Application.Features.BookLends.Commands.CreateBookLend;
@@ -29,6 +30,7 @@ using BooksEverywhere.Application.Features.Subjects.Commands.UpdateSubject;
 using BooksEverywhere.Application.Features.Subjects.Queries.GetSubjectInfo;
 using BooksEverywhere.Application.Features.Subjects.Queries.GetSubjectsList;
 using BooksEverywhere.Application.Features.Subsidiaries.Commands.CreateSubsidiary;
+using BooksEverywhere.Application.Features.Subsidiaries.Commands.UpdateSubsidiary;
 using BooksEverywhere.Application.Features.Subsidiaries.Queries.GetSubsidiariesList;
 using BooksEverywhere.Application.Features.Subsidiaries.Queries.GetSubsidiaryInfo;
 using BooksEverywhere.Domain.Entities;
@@ -50,6 +52,7 @@ namespace BooksEverywhere.Application.Profiles
             CreateMap<BookCollection, BookCollectionListVm>().ReverseMap();
             CreateMap<Book, BookCollectionInfoVm>().ReverseMap();
             CreateMap<BookCollection, CreateBookCollectionCommand>().ReverseMap();
+            CreateMap<BookCollection, UpdateBookCollectionCommand>().ReverseMap();
 
             CreateMap<BookLend, BookLendListVm>().ReverseMap();
             CreateMap<BookLend, BookLendInfoVm>().ReverseMap();
@@ -83,6 +86,7 @@ namespace BooksEverywhere.Application.Profiles
             CreateMap<Subsidiary, SubsidiariesListVm>().ReverseMap();
             CreateMap<Subsidiary, SubsidiaryInfoVm>().ReverseMap();
             CreateMap<Subsidiary, CreateSubsidiaryCommand>().ReverseMap();
+            CreateMap<Subsidiary, UpdateSubsidiaryCommand>().ReverseMap();
         }
     }
 }

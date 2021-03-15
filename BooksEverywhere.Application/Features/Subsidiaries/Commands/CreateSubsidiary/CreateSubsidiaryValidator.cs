@@ -9,8 +9,6 @@ namespace BooksEverywhere.Application.Features.Subsidiaries.Commands.CreateSubsi
     {
         public CreateSubsidiaryValidator()
         {
-            RuleFor(p => p.LibraryInfo)
-                .NotEmpty();
         }
     }
 }

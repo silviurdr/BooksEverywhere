@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BooksEverywhere.Persistence.Migrations
 {
     [DbContext(typeof(BooksEverywhereDbContext))]
-    [Migration("20210312035452_InitialMigration")]
+    [Migration("20210315152530_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -243,7 +243,7 @@ namespace BooksEverywhere.Persistence.Migrations
                     b.HasIndex("LibraryUserId")
                         .IsUnique();
 
-                    b.ToTable("BookLend");
+                    b.ToTable("BookLends");
                 });
 
             modelBuilder.Entity("BooksEverywhere.Domain.Entities.BookTag", b =>
@@ -413,7 +413,7 @@ namespace BooksEverywhere.Persistence.Migrations
 
                     b.HasIndex("LibraryId");
 
-                    b.ToTable("LibraryUser");
+                    b.ToTable("LibraryUsers");
                 });
 
             modelBuilder.Entity("BooksEverywhere.Domain.Entities.Notification", b =>
@@ -461,7 +461,7 @@ namespace BooksEverywhere.Persistence.Migrations
 
                     b.HasIndex("LibraryInfoId");
 
-                    b.ToTable("Room");
+                    b.ToTable("Rooms");
                 });
 
             modelBuilder.Entity("BooksEverywhere.Domain.Entities.Shelf", b =>
@@ -506,7 +506,7 @@ namespace BooksEverywhere.Persistence.Migrations
 
                     b.HasIndex("StackTagId");
 
-                    b.ToTable("Stack");
+                    b.ToTable("Stacks");
                 });
 
             modelBuilder.Entity("BooksEverywhere.Domain.Entities.StackTag", b =>
@@ -546,7 +546,7 @@ namespace BooksEverywhere.Persistence.Migrations
 
                     b.HasIndex("BookDetailsId");
 
-                    b.ToTable("Subject");
+                    b.ToTable("Subjects");
                 });
 
             modelBuilder.Entity("BooksEverywhere.Domain.Entities.Subsidiary", b =>
@@ -568,7 +568,7 @@ namespace BooksEverywhere.Persistence.Migrations
 
                     b.HasIndex("LibraryInfoId");
 
-                    b.ToTable("Subsidiary");
+                    b.ToTable("Subsidiaries");
                 });
 
             modelBuilder.Entity("BooksEverywhere.Domain.Entities.Account", b =>

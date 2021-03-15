@@ -7,7 +7,6 @@ namespace BooksEverywhere.Application.Features.Libraries.Commands.CreateLibrary
 {
     public class CreateLibraryDto
     {
-        public int LibraryId { get; set; }
         public LibraryInfo LibraryInfo { get; set; }
     }
 }
