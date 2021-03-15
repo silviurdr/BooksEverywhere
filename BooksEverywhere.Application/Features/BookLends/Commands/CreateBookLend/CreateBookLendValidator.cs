@@ -9,8 +9,7 @@ namespace BooksEverywhere.Application.Features.BookLends.Commands.CreateBookLend
     {
         public CreateBookLendValidator()
         {
-            RuleFor(p => p.BooksList)
-                .NotEmpty();
+
         }
     }
 }
