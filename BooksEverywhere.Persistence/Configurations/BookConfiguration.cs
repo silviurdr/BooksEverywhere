@@ -27,7 +27,6 @@ namespace BooksEverywhere.Persistence.Configurations
                 .WithOne(b => b.Book)
                 .HasForeignKey<BookTag>(bt => bt.BookId);
 
-
         }
     }
 }

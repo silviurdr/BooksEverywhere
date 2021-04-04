@@ -227,6 +227,9 @@ namespace BooksEverywhere.Persistence.Migrations
                     b.Property<DateTime>("DueDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("LendStatus")
+                        .HasColumnType("int");
+
                     b.Property<int>("LibraryUserId")
                         .HasColumnType("int");
 
@@ -635,15 +638,13 @@ namespace BooksEverywhere.Persistence.Migrations
                         .WithMany()
                         .HasForeignKey("AuthorId1");
 
-                    b.HasOne("BooksEverywhere.Domain.Entities.Book", "Book")
+                    b.HasOne("BooksEverywhere.Domain.Entities.Book", null)
                         .WithOne("BookDetails")
                         .HasForeignKey("BooksEverywhere.Domain.Entities.BookDetails", "BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Author");
-
-                    b.Navigation("Book");
                 });
 
             modelBuilder.Entity("BooksEverywhere.Domain.Entities.BookEdition", b =>

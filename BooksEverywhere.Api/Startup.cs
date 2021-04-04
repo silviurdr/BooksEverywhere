@@ -72,7 +72,10 @@ namespace BooksEverywhere.Api
 
             app.UseCustomExceptionHandler();
 
-            app.UseCors("Open");
+            app.UseCors(x => x.AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowCredentials()
+                .WithOrigins("https://localhost:4200"));
 
             app.UseEndpoints(endpoints =>
             {

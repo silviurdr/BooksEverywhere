@@ -170,6 +170,7 @@ namespace BooksEverywhere.Persistence.Migrations
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DueDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ReturnDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LendStatus = table.Column<int>(type: "int", nullable: false),
                     LibraryUserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
