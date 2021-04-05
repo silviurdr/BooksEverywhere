@@ -15,10 +15,6 @@ namespace BooksEverywhere.Persistence.Configurations
                 .WithOne(b => b.Book)
                 .HasForeignKey<BookCollection>(bc => bc.BookId);
 
-            builder.HasOne(bc => bc.BookDetails)
-                .WithOne(b => b.Book)
-                .HasForeignKey<BookDetails>(bd => bd.BookId);
-
             builder.HasOne(bc => bc.BookCallNumber)
                 .WithOne(b => b.Book)
                 .HasForeignKey<BookCallNumber>(bcn => bcn.BookId);

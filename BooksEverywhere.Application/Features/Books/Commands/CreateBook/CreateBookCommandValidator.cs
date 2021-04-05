@@ -9,14 +9,14 @@ namespace BooksEverywhere.Application.Features.Books.Commands.CreateBook
     {
         public CreateBookCommandValidator()
         {
-            RuleFor(p => p.BookDetails)
+            RuleFor(p => p.Author)
                 .NotEmpty();
 
-            RuleFor(p => p.BookDetails.Title)
+            RuleFor(p => p.Title)
                 .NotEmpty().WithMessage("{PropertyName} is required.")
                 .NotNull();
 
-            RuleFor(p => p.BookDetails.Description)
+            RuleFor(p => p.Description)
                 .NotEmpty().WithMessage("{PropertyName} is required.")
                 .NotNull();
         }

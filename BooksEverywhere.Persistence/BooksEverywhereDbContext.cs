@@ -14,6 +14,7 @@ namespace BooksEverywhere.Persistence
         {
         }
         public DbSet<Book> Books { get; set; }
+        public DbSet<Author> Authors { get; set; }
         public DbSet<BookCollection> BookCollections { get; set; }
         public DbSet<Library> Libraries { get; set; }
         public DbSet<Subsidiary> Subsidiaries { get; set; }

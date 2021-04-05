@@ -1,16 +1,14 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BooksEverywhere.Domain.Entities
+namespace BooksEverywhere.Application.Features.Authors.Commands.UpdateAuthor
 {
-    public class Author
+    public class UpdateAuthorCommand: IRequest
     {
         public int Id { get; set; }
-        public string AuthorCode { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public ICollection<Book> Books { get; set; }
-
     }
 }

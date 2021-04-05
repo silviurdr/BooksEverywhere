@@ -7,11 +7,13 @@ using System.Text;
 
 namespace BooksEverywhere.Persistence.Configurations
 {
-    public class BookDetailsConfiguration : IEntityTypeConfiguration<BookDetails>
+    public class AuthorConfiguration : IEntityTypeConfiguration<Author>
     {
-        public void Configure(EntityTypeBuilder<BookDetails> builder)
+        public void Configure(EntityTypeBuilder<Author> builder)
         {
-            builder.Ignore(bd => bd.Book);
+            builder.HasMany(a => a.Books)
+                .WithOne(b => b.Author)
+                .HasForeignKey(b => b.AuthorId);
         }
     }
 }

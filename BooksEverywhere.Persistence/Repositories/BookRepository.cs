@@ -18,12 +18,12 @@ namespace BooksEverywhere.Persistence.Repositories
 
         public async override Task<IReadOnlyList<Book>> ListAllAsync()
         {
-            return await _dbContext.Books.Include(b => b.BookDetails).ToListAsync();
+            return await _dbContext.Books.ToListAsync();
         }
 
         public async override Task<Book> GetByIdAsync(int id)
         {
-            return await _dbContext.Books.Include(b => b.BookDetails).FirstOrDefaultAsync(b => b.Id == id);
+            return await _dbContext.Books.FirstOrDefaultAsync(b => b.Id == id);
         }
 
     }

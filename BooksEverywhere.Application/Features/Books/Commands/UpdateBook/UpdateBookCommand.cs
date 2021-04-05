@@ -11,6 +11,8 @@ namespace BooksEverywhere.Application.Features.Books.Commands.UpdateBook
     {
         public int Id { get; set; }
         public BookStatus BookStatus { get; set; }
-        public BookDetails BookDetails { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public Author Author { get; set; }
     }
 }

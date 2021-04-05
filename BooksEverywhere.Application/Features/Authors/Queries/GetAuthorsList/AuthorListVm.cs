@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BooksEverywhere.Domain.Entities
+namespace BooksEverywhere.Application.Features.Authors.Queries.GetAuthorsList
 {
-    public class Author
+    public class AuthorListVm
     {
         public int Id { get; set; }
-        public string AuthorCode { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public ICollection<Book> Books { get; set; }
-
     }
 }

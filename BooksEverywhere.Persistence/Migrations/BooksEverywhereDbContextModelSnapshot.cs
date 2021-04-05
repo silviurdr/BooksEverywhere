@@ -56,9 +56,6 @@ namespace BooksEverywhere.Persistence.Migrations
                     b.Property<string>("AuthorCode")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("BookDetailsId")
-                        .HasColumnType("int");
-
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
@@ -67,7 +64,7 @@ namespace BooksEverywhere.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Author");
+                    b.ToTable("Authors");
                 });
 
             modelBuilder.Entity("BooksEverywhere.Domain.Entities.Book", b =>
@@ -77,13 +74,24 @@ namespace BooksEverywhere.Persistence.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("AuthorId")
+                        .HasColumnType("int");
+
                     b.Property<int>("BookStatus")
                         .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ShelfId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("AuthorId");
 
                     b.HasIndex("ShelfId");
 
@@ -150,38 +158,6 @@ namespace BooksEverywhere.Persistence.Migrations
                     b.ToTable("BookCollections");
                 });
 
-            modelBuilder.Entity("BooksEverywhere.Domain.Entities.BookDetails", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AuthorId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AuthorId1")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BookId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AuthorId1");
-
-                    b.HasIndex("BookId")
-                        .IsUnique();
-
-                    b.ToTable("BookDetails");
-                });
-
             modelBuilder.Entity("BooksEverywhere.Domain.Entities.BookEdition", b =>
                 {
                     b.Property<int>("Id")
@@ -189,7 +165,7 @@ namespace BooksEverywhere.Persistence.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("BookDetailsId")
+                    b.Property<int?>("BookId")
                         .HasColumnType("int");
 
                     b.Property<int>("Copies")
@@ -209,7 +185,7 @@ namespace BooksEverywhere.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BookDetailsId");
+                    b.HasIndex("BookId");
 
                     b.ToTable("BookEdition");
                 });
@@ -537,7 +513,7 @@ namespace BooksEverywhere.Persistence.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("BookDetailsId")
+                    b.Property<int?>("BookId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -545,7 +521,7 @@ namespace BooksEverywhere.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BookDetailsId");
+                    b.HasIndex("BookId");
 
                     b.ToTable("Subjects");
                 });
@@ -585,9 +561,17 @@ namespace BooksEverywhere.Persistence.Migrations
 
             modelBuilder.Entity("BooksEverywhere.Domain.Entities.Book", b =>
                 {
+                    b.HasOne("BooksEverywhere.Domain.Entities.Author", "Author")
+                        .WithMany("Books")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("BooksEverywhere.Domain.Entities.Shelf", null)
                         .WithMany("Books")
                         .HasForeignKey("ShelfId");
+
+                    b.Navigation("Author");
                 });
 
             modelBuilder.Entity("BooksEverywhere.Domain.Entities.BookCallNumber", b =>
@@ -632,26 +616,11 @@ namespace BooksEverywhere.Persistence.Migrations
                     b.Navigation("RoomLocation");
                 });
 
-            modelBuilder.Entity("BooksEverywhere.Domain.Entities.BookDetails", b =>
-                {
-                    b.HasOne("BooksEverywhere.Domain.Entities.Author", "Author")
-                        .WithMany()
-                        .HasForeignKey("AuthorId1");
-
-                    b.HasOne("BooksEverywhere.Domain.Entities.Book", null)
-                        .WithOne("BookDetails")
-                        .HasForeignKey("BooksEverywhere.Domain.Entities.BookDetails", "BookId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Author");
-                });
-
             modelBuilder.Entity("BooksEverywhere.Domain.Entities.BookEdition", b =>
                 {
-                    b.HasOne("BooksEverywhere.Domain.Entities.BookDetails", null)
+                    b.HasOne("BooksEverywhere.Domain.Entities.Book", null)
                         .WithMany("BookEditions")
-                        .HasForeignKey("BookDetailsId");
+                        .HasForeignKey("BookId");
                 });
 
             modelBuilder.Entity("BooksEverywhere.Domain.Entities.BookLend", b =>
@@ -771,9 +740,9 @@ namespace BooksEverywhere.Persistence.Migrations
 
             modelBuilder.Entity("BooksEverywhere.Domain.Entities.Subject", b =>
                 {
-                    b.HasOne("BooksEverywhere.Domain.Entities.BookDetails", null)
+                    b.HasOne("BooksEverywhere.Domain.Entities.Book", null)
                         .WithMany("Subjects")
-                        .HasForeignKey("BookDetailsId");
+                        .HasForeignKey("BookId");
                 });
 
             modelBuilder.Entity("BooksEverywhere.Domain.Entities.Subsidiary", b =>
@@ -793,20 +762,20 @@ namespace BooksEverywhere.Persistence.Migrations
                     b.Navigation("LibraryInfo");
                 });
 
+            modelBuilder.Entity("BooksEverywhere.Domain.Entities.Author", b =>
+                {
+                    b.Navigation("Books");
+                });
+
             modelBuilder.Entity("BooksEverywhere.Domain.Entities.Book", b =>
                 {
                     b.Navigation("BookCallNumber");
 
                     b.Navigation("BookCollection");
 
-                    b.Navigation("BookDetails");
+                    b.Navigation("BookEditions");
 
                     b.Navigation("BookTag");
-                });
-
-            modelBuilder.Entity("BooksEverywhere.Domain.Entities.BookDetails", b =>
-                {
-                    b.Navigation("BookEditions");
 
                     b.Navigation("Subjects");
                 });
