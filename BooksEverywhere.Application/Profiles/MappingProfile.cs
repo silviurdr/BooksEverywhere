@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BooksEverywhere.Application.Features.Authors.Commands.CreateAuthor;
 using BooksEverywhere.Application.Features.Authors.Commands.UpdateAuthor;
+using BooksEverywhere.Application.Features.Authors.Queries.GetAuthorByName;
 using BooksEverywhere.Application.Features.Authors.Queries.GetAuthorInfo;
 using BooksEverywhere.Application.Features.Authors.Queries.GetAuthorsList;
 using BooksEverywhere.Application.Features.BookCollections.Commands.CreateBookCollection;
@@ -57,6 +58,7 @@ namespace BooksEverywhere.Application.Profiles
             CreateMap<Author, AuthorInfoVm>().ReverseMap();
             CreateMap<Author, CreateAuthorCommand>().ReverseMap();
             CreateMap<Author, UpdateAuthorCommand>().ReverseMap();
+            CreateMap<Author, AuthorByNameVm>().ReverseMap();
 
             CreateMap<BookCollection, BookCollectionListVm>().ReverseMap();
             CreateMap<Book, BookCollectionInfoVm>().ReverseMap();

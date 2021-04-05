@@ -9,7 +9,7 @@ namespace BooksEverywhere.Application.Features.Books.Commands.CreateBook
     {
         public CreateBookCommandValidator()
         {
-            RuleFor(p => p.Author)
+            RuleFor(p => p.AuthorName)
                 .NotEmpty();
 
             RuleFor(p => p.Title)

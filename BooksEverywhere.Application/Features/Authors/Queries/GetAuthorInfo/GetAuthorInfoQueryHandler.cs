@@ -24,6 +24,7 @@ namespace BooksEverywhere.Application.Features.Authors.Queries.GetAuthorInfo
         {
 
             var @author = await _authorRepository.GetByIdAsync(request.Id);
+
             var authorInfoDto = _mapper.Map<AuthorInfoVm>(@author);
 
             return authorInfoDto;

@@ -1,6 +1,8 @@
 ﻿using BooksEverywhere.Application.Features.Authors.Commands.CreateAuthor;
 using BooksEverywhere.Application.Features.Authors.Commands.DeleteAuthor;
 using BooksEverywhere.Application.Features.Authors.Commands.UpdateAuthor;
+using BooksEverywhere.Application.Features.Authors.Queries.GetAuthorByName;
+using BooksEverywhere.Application.Features.Authors.Queries.GetAuthorIdByAuthorName;
 using BooksEverywhere.Application.Features.Authors.Queries.GetAuthorInfo;
 using BooksEverywhere.Application.Features.Authors.Queries.GetAuthorsList;
 using BooksEverywhere.Application.Features.Books.Commands.UpdateBook;
@@ -39,6 +41,19 @@ namespace BooksEverywhere.Api.Controllers
         {
             var getAuthorInfoQuery = new GetAuthorInfoQuery() { Id = id };
             return Ok(await _mediator.Send(getAuthorInfoQuery));
+        }
+
+        [HttpGet("name", Name ="GetAuthorByName")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult<AuthorByNameVm>> GetAuthorByName(string fullName)
+        {
+            var getAuthorByNameQuery = new GetAuthorByNameQuery() { FullName = fullName };
+
+            var authorId = await _mediator.Send(getAuthorByNameQuery);
+
+            return Ok(authorId);
         }
 
         [HttpPost(Name="AddAuthor")]
