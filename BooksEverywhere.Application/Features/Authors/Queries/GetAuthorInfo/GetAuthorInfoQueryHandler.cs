@@ -13,9 +13,9 @@ namespace BooksEverywhere.Application.Features.Authors.Queries.GetAuthorInfo
     public class GetAuthorInfoQueryHandler : IRequestHandler<GetAuthorInfoQuery, AuthorInfoVm>
     {
         private readonly IMapper _mapper;
-        private readonly IAsyncRepository<Author> _authorRepository;
+        private readonly IAuthorRepository _authorRepository;
 
-        public GetAuthorInfoQueryHandler(IMapper mapper, IAsyncRepository<Author> authorRepository)
+        public GetAuthorInfoQueryHandler(IMapper mapper, IAuthorRepository authorRepository)
         {
             _mapper = mapper;
             _authorRepository = authorRepository;

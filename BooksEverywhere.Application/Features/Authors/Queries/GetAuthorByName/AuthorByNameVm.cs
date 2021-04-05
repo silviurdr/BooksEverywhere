@@ -6,6 +6,7 @@ namespace BooksEverywhere.Application.Features.Authors.Queries.GetAuthorByName
 {
     public class AuthorByNameVm
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
+        public string AuthorName { get; set; }
     }
 }

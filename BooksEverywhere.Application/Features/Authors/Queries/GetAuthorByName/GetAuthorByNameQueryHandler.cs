@@ -31,9 +31,10 @@ namespace BooksEverywhere.Application.Features.Authors.Queries.GetAuthorIdByAuth
                 throw new NotFoundException(nameof(Author), request.FullName);
             }
 
-            var authorIdDto = _mapper.Map<AuthorByNameVm>(@author);
+            var authorDto = _mapper.Map<AuthorByNameVm>(@author);
+            authorDto.AuthorName = request.FullName;
 
-            return authorIdDto;
+            return authorDto;
         }
     }
 }

@@ -17,9 +17,14 @@ namespace BooksEverywhere.Persistence.Repositories
             _dbContext = dbContext;
         }
 
+        public async override Task<Author> GetByIdAsync(int id)
+        {
+            return await _dbContext.Authors.Include(a => a.Books).FirstOrDefaultAsync(a => a.Id == id);
+        }
+
         public async Task<Author> GetAuthorByName(string fullName)
         {
-            return await _dbContext.Authors.FirstOrDefaultAsync(a => a.FirstName + " " + a.LastName == fullName);
+            return await _dbContext.Authors.Include(a => a.Books).FirstOrDefaultAsync(a => a.FirstName + " " + a.LastName == fullName);
         }
     }
 }
